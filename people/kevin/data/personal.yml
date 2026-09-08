@@ -1,0 +1,9 @@
+# yaml-language-server: $schema=../../../../schemas/personal.schema.json
+full_name: "Kevin Example"
+email: "kevin@example.com"
+phone: "+00 000 000 000"
+location: "Example City, Country"
+website: "https://example.com/kevin"
+summary: >
+  Software engineer with experience building web applications and developer
+  tooling. Enjoys automating repetitive work and mentoring junior engineers.

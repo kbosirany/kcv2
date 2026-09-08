@@ -1,0 +1,10 @@
+# yaml-language-server: $schema=../../../../schemas/experience.schema.json
+- company: "Example Primary School"
+  role: "Primary School Teacher"
+  start_date: 1990-09-01
+  end_date: 2020-07-31
+  location: "Example Village"
+  highlights:
+    - "Taught grades 1-6 for over 30 years."
+    - "Organised annual school theatre productions."
+  tags: ["teaching"]

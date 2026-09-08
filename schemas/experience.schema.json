@@ -1,0 +1,20 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://example.com/schemas/experience.schema.json",
+  "title": "ExperienceList",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": ["company", "role", "start_date"],
+    "additionalProperties": false,
+    "properties": {
+      "company": { "type": "string" },
+      "role": { "type": "string" },
+      "start_date": { "type": "string", "format": "date" },
+      "end_date": { "type": "string", "format": "date" },
+      "location": { "type": "string" },
+      "highlights": { "type": "array", "items": { "type": "string" } },
+      "tags": { "type": "array", "items": { "type": "string" } }
+    }
+  }
+}

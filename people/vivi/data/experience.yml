@@ -1,0 +1,10 @@
+# yaml-language-server: $schema=../../../../schemas/experience.schema.json
+- company: "Creative Studio Co."
+  role: "Senior Graphic Designer"
+  start_date: 2018-04-01
+  end_date: null
+  location: "Example City"
+  highlights:
+    - "Led rebranding projects for 10+ clients."
+    - "Designed marketing collateral for major product launches."
+  tags: ["design"]

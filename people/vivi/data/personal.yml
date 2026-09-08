@@ -1,0 +1,9 @@
+# yaml-language-server: $schema=../../../../schemas/personal.schema.json
+full_name: "Vivi Example"
+email: "vivi@example.com"
+phone: "+00 000 000 001"
+location: "Example City, Country"
+website: "https://example.com/vivi"
+summary: >
+  Graphic designer with a passion for branding and illustration, working
+  across print and digital media.

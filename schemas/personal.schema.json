@@ -1,0 +1,16 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://example.com/schemas/personal.schema.json",
+  "title": "PersonalInfo",
+  "type": "object",
+  "required": ["full_name"],
+  "additionalProperties": false,
+  "properties": {
+    "full_name": { "type": "string" },
+    "email": { "type": "string", "format": "email" },
+    "phone": { "type": "string" },
+    "location": { "type": "string" },
+    "website": { "type": "string" },
+    "summary": { "type": "string" }
+  }
+}

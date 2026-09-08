@@ -1,0 +1,4 @@
+- name: "CV Manager"
+  description: "A YAML-driven multi-person CV generator (this repo!)."
+  url: "https://github.com/example/cv-manager"
+  tags: ["engineer", "open-source"]

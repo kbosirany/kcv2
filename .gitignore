@@ -1,0 +1,28 @@
+# Build output
+/dist/pdf/*
+!/dist/pdf/.gitkeep
+/dist/site/*
+!/dist/site/.gitkeep
+
+# Personal assets (photos etc.) - opt-in only, this repo is public
+people/*/assets/*
+!people/*/assets/.gitkeep
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# LaTeX build artifacts
+*.aux
+*.log
+*.out
+*.toc
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/

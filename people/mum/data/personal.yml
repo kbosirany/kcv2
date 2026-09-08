@@ -1,0 +1,7 @@
+# yaml-language-server: $schema=../../../../schemas/personal.schema.json
+full_name: "Mum Example"
+email: "mum@example.com"
+location: "Example Village, Country"
+summary: >
+  Retired primary school teacher with 30 years of experience, now doing
+  volunteer tutoring.

@@ -1,0 +1,18 @@
+# yaml-language-server: $schema=../../../../schemas/experience.schema.json
+- company: "Example Corp"
+  role: "Senior Software Engineer"
+  start_date: 2020-01-01
+  end_date: null
+  location: "Remote"
+  highlights:
+    - "Led migration of the core platform to a microservices architecture."
+    - "Mentored a team of 4 junior engineers."
+  tags: ["engineer", "backend"]
+- company: "Sample Systems"
+  role: "Software Engineer"
+  start_date: 2014-07-01
+  end_date: 2019-12-31
+  location: "Example City"
+  highlights:
+    - "Built and maintained internal developer tools."
+  tags: ["engineer"]

@@ -1,0 +1,4 @@
+# yaml-language-server: $schema=../../../../schemas/variant.schema.json
+name: default
+template: moderncv
+title: "Graphic Designer"

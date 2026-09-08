@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>{{ profile.full_name }}{% if variant.title %} — {{ variant.title }}{% endif %}</title>
+  <link rel="stylesheet" href="{{ site_root }}style.css">
+</head>
+<body>
+  <main class="cv">
+    <header>
+      <h1>{{ profile.full_name }}</h1>
+      {% if variant.title %}<p class="headline">{{ variant.title }}</p>{% endif %}
+      <p class="contact">
+        {%- if personal.email %}{{ personal.email }}{% endif -%}
+        {%- if personal.phone %} · {{ personal.phone }}{% endif -%}
+        {%- if personal.location %} · {{ personal.location }}{% endif -%}
+      </p>
+    </header>
+
+    {% if personal.summary %}
+    <section>
+      <h2>Summary</h2>
+      <p>{{ personal.summary }}</p>
+    </section>
+    {% endif %}
+
+    {% if education %}
+    <section>
+      <h2>Education</h2>
+      {% for item in education %}
+      <article>
+        <h3>{{ item.degree }} — {{ item.institution }}</h3>
+        <p class="dates">{{ item.start_date }} – {{ item.end_date or "present" }}</p>
+        {% if item.description %}<p>{{ item.description }}</p>{% endif %}
+      </article>
+      {% endfor %}
+    </section>
+    {% endif %}
+
+    {% if experience %}
+    <section>
+      <h2>Experience</h2>
+      {% for item in experience %}
+      <article>
+        <h3>{{ item.role }} — {{ item.company }}</h3>
+        <p class="dates">{{ item.start_date }} – {{ item.end_date or "present" }}{% if item.location %} · {{ item.location }}{% endif %}</p>
+        {% if item.highlights %}
+        <ul>
+          {% for h in item.highlights %}<li>{{ h }}</li>{% endfor %}
+        </ul>
+        {% endif %}
+      </article>
+      {% endfor %}
+    </section>
+    {% endif %}
+
+    {% if skills %}
+    <section>
+      <h2>Skills</h2>
+      {% for cat in skills %}
+      <p><strong>{{ cat.category }}:</strong> {{ cat['items']|join(", ") }}</p>
+      {% endfor %}
+    </section>
+    {% endif %}
+
+    {% if projects %}
+    <section>
+      <h2>Projects</h2>
+      {% for item in projects %}
+      <article>
+        <h3>{% if item.url %}<a href="{{ item.url }}">{{ item.name }}</a>{% else %}{{ item.name }}{% endif %}</h3>
+        {% if item.description %}<p>{{ item.description }}</p>{% endif %}
+      </article>
+      {% endfor %}
+    </section>
+    {% endif %}
+
+    {% if publications %}
+    <section>
+      <h2>Publications</h2>
+      <ul>
+        {% for item in publications %}<li>{{ item.title }}{% if item.venue %} — {{ item.venue }}{% endif %}{% if item.year %} ({{ item.year }}){% endif %}</li>{% endfor %}
+      </ul>
+    </section>
+    {% endif %}
+
+    {% if certifications %}
+    <section>
+      <h2>Certifications</h2>
+      <ul>
+        {% for item in certifications %}<li>{{ item.name }}{% if item.issuer %} — {{ item.issuer }}{% endif %}</li>{% endfor %}
+      </ul>
+    </section>
+    {% endif %}
+  </main>
+</body>
+</html>

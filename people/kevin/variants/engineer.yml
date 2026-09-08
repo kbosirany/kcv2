@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=../../../../schemas/variant.schema.json
+name: engineer
+template: moderncv
+title: "Senior Software Engineer"
+include_sections:
+  - personal
+  - experience
+  - skills
+  - projects
+  - education
+  - certifications
+tags_filter:
+  - engineer

@@ -1,0 +1,66 @@
+%% Rendered by scripts/build.py from templates/moderncv/main.tex.jinja
+\documentclass[11pt,a4paper,sans]{moderncv}
+\moderncvstyle{banking}
+\moderncvcolor{blue}
+\microtypesetup{expansion=false}
+
+\usepackage[scale=0.85]{geometry}
+
+\name{ {{- profile.full_name.split(' ')[0] -}} }{ {{- ' '.join(profile.full_name.split(' ')[1:]) -}} }
+{% if variant.title %}\title{ {{- variant.title -}} }{% endif %}
+{% if personal.email %}\email{ {{- personal.email -}} }{% endif %}
+{% if personal.phone %}\phone{ {{- personal.phone -}} }{% endif %}
+{% if personal.location %}\address{ {{- personal.location -}} }{% endif %}
+{% if personal.website %}\homepage{ {{- personal.website -}} }{% endif %}
+
+\begin{document}
+\makecvtitle
+
+{% if personal.summary %}
+\section{Summary}
+{{ personal.summary }}
+{% endif %}
+
+{% if education %}
+\section{Education}
+{% for item in education %}
+\cventry{ {{- item.start_date.strftime('%Y') }}--{% if item.end_date %}{{ item.end_date.strftime('%Y') }}{% else %}present{% endif %} }{ {{- item.degree -}} }{ {{- item.institution -}} }{}{}{ {{- item.description or '' -}} }
+{% endfor %}
+{% endif %}
+
+{% if experience %}
+\section{Experience}
+{% for item in experience %}
+\cventry{ {{- item.start_date.strftime('%Y') }}--{% if item.end_date %}{{ item.end_date.strftime('%Y') }}{% else %}present{% endif %} }{ {{- item.role -}} }{ {{- item.company -}} }{ {{- item.location or '' -}} }{}{ {%- for h in item.highlights -%}\begin{itemize}\item {{ h }}\end{itemize}{% endfor -%} }
+{% endfor %}
+{% endif %}
+
+{% if skills %}
+\section{Skills}
+{% for cat in skills %}
+\cvitem{ {{- cat.category -}} }{ {{- cat['items']|join(', ') -}} }
+{% endfor %}
+{% endif %}
+
+{% if projects %}
+\section{Projects}
+{% for item in projects %}
+\cvitem{ {{- item.name -}} }{ {{- item.description or '' -}} }
+{% endfor %}
+{% endif %}
+
+{% if publications %}
+\section{Publications}
+{% for item in publications %}
+\cvitem{ {{- item.year or '' -}} }{ {{- item.title -}} }
+{% endfor %}
+{% endif %}
+
+{% if certifications %}
+\section{Certifications}
+{% for item in certifications %}
+\cvitem{ {{- item.date.strftime('%Y') if item.date else '' -}} }{ {{- item.name -}} }
+{% endfor %}
+{% endif %}
+
+\end{document}

@@ -1,0 +1,10 @@
+site:
+  title: "Family CV Book"
+  description: "CVs generated from structured data"
+  base_url: "/kcv2/"  # GitHub Pages project path, adjust to your repo name
+
+build:
+  default_template: moderncv
+  people_dir: people
+  dist_pdf_dir: dist/pdf
+  dist_site_dir: dist/site

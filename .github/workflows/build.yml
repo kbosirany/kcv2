@@ -1,0 +1,42 @@
+name: Build
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  validate-and-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Python dependencies
+        run: pip install -r requirements.txt
+
+      - name: Validate CV data
+        run: python scripts/validate.py
+
+      # Installing a full LaTeX distribution is slow (~1-2 min cached, longer
+      # uncached). Remove this step if you only need the .tex output or the
+      # static site (see pages.yml) and not compiled PDFs.
+      - name: Install LaTeX (moderncv)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            texlive-latex-base texlive-latex-extra texlive-fonts-recommended latexmk
+
+      - name: Build PDFs
+        run: python scripts/build.py
+
+      - name: Upload PDFs
+        uses: actions/upload-artifact@v4
+        with:
+          name: cv-pdfs
+          path: dist/pdf/**/*.pdf
+          if-no-files-found: warn
