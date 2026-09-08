@@ -10,6 +10,7 @@
     <header>
       <h1>{{ profile.full_name }}</h1>
       {% if variant.title %}<p class="headline">{{ variant.title }}</p>{% endif %}
+      {% if pdf_url %}<p class="actions"><a href="{{ pdf_url }}">Download PDF</a></p>{% endif %}
       <p class="contact">
         {%- if personal.email %}{{ personal.email }}{% endif -%}
         {%- if personal.phone %} · {{ personal.phone }}{% endif -%}

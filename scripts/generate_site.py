@@ -24,6 +24,13 @@ def main() -> int:
     DIST_SITE.mkdir(parents=True, exist_ok=True)
     shutil.copy(TEMPLATES_DIR / "minimalist" / "style.css", DIST_SITE / "style.css")
 
+    pdf_src = ROOT / "dist" / "pdf"
+    pdf_dst = DIST_SITE / "pdf"
+    if pdf_src.exists():
+        if pdf_dst.exists():
+            shutil.rmtree(pdf_dst)
+        shutil.copytree(pdf_src, pdf_dst)
+
     people = list_people()
     index_lines = [
         "<!DOCTYPE html><html lang='en'><head><meta charset='utf-8'>",
@@ -43,6 +50,8 @@ def main() -> int:
         for variant_name, variant in variants.items():
             context = build_variant_context(person, variant)
             context["site_root"] = "../"
+            pdf_path = ROOT / "dist" / "pdf" / slug / f"{variant_name}.pdf"
+            context["pdf_url"] = f"../pdf/{slug}/{variant_name}.pdf" if pdf_path.exists() else None
             template = env.get_template("minimalist/index.html.jinja")
             html = template.render(**context)
             (person_dir / f"{variant_name}.html").write_text(html, encoding="utf-8")

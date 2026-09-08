@@ -30,6 +30,15 @@ jobs:
       - name: Validate CV data
         run: python scripts/validate.py
 
+      - name: Install LaTeX (moderncv)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            texlive-latex-base texlive-latex-extra texlive-fonts-recommended latexmk texlive-fonts-extra
+
+      - name: Build PDFs
+        run: python scripts/build.py
+
       - name: Generate site
         run: python scripts/generate_site.py
 
